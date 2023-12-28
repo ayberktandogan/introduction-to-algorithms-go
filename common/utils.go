@@ -9,8 +9,8 @@ import (
 const LEN = 100000
 const MAX = 100000
 
-func PrintResult(o [LEN]int, el time.Duration) {
-	fmt.Printf("This process roughly took %s ", el.String())
+func PrintResult(prName string, o any, el time.Duration) {
+	fmt.Printf("This process [%s] roughly took %s \n", prName, el.String())
 }
 
 func RandomIntArr(len int, max int) [LEN]int {
@@ -18,6 +18,16 @@ func RandomIntArr(len int, max int) [LEN]int {
 
 	for idx := range arr {
 		arr[idx] = rand.Intn(max)
+	}
+
+	return arr
+}
+
+func RandomBinaryArr(len int) []int {
+	arr := make([]int, len)
+
+	for idx := range arr {
+		arr[idx] = rand.Intn(2)
 	}
 
 	return arr

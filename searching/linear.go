@@ -7,19 +7,17 @@ import (
 )
 
 // question 2.1-4
-func LinearSearch(A [common.LEN]int, i int) *int {
+func LinearSearch(A [common.LEN]int, i int) (*int, *time.Duration) {
 	var res *int = nil
 
 	start := time.Now()
-	for idx := 0; i < len(A); i++ {
+	for idx := 0; idx < len(A); idx++ {
 		if A[idx] == i {
-			res = &idx
+			res = &i
 			break
 		}
 	}
 	el := time.Since(start)
 
-	common.PrintResult(A, el)
-
-	return res
+	return res, &el
 }

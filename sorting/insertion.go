@@ -6,7 +6,7 @@ import (
 	"github.com/ayberktandogan/introduction-to-algorithms-go/common"
 )
 
-func InsertionSort(a [common.LEN]int, n int) {
+func InsertionSort(a [common.LEN]int, n int) ([]int, *time.Duration) {
 	A := a
 
 	start := time.Now()
@@ -23,11 +23,11 @@ func InsertionSort(a [common.LEN]int, n int) {
 	}
 	el := time.Since(start)
 
-	common.PrintResult(A, el)
+	return A[:], &el
 }
 
 // question 2.1-3
-func ReverseInsertionSort(a [common.LEN]int, n int) {
+func ReverseInsertionSort(a [common.LEN]int, n int) ([]int, *time.Duration) {
 	A := a
 
 	start := time.Now()
@@ -44,5 +44,5 @@ func ReverseInsertionSort(a [common.LEN]int, n int) {
 	}
 	el := time.Since(start)
 
-	common.PrintResult(A, el)
+	return A[:], &el
 }
